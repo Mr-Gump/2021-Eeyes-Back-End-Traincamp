@@ -36,9 +36,9 @@
 
 #### 2.培训形式
 
-`ZOOM` 同时共享屏幕 
+`ZOOM` 
 
-`TeamViewer `
+`TeamViewer ` 同时共享屏幕 
 
 ## 三、你需要准备什么
 
