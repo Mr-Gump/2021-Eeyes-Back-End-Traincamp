@@ -6,7 +6,7 @@
 
 #### 1.后端？
 
-`C/S`         `client`        `server`
+`C/S`            `client`        `server`
 
 `Resquest`  - `Server`  - `Response` - `Client`
 
