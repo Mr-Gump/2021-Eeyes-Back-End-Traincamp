@@ -1,6 +1,0 @@
-Unix  Linux Kernel   distribution
-Open Source  
-Close 
-Git Github
-Windows
-MacOSX
