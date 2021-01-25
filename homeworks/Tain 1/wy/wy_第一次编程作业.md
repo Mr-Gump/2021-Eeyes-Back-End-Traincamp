@@ -170,10 +170,14 @@ print (team)
 你的答案(代码)
 
 ```python
-#这一堆成行的电话输不进去...
-a = {1,2,3,2,1,4,5}
-a = list(a)
-for x in a :
-    print (x,end="  ")
+f = open("number.txt")
+data = f.read() #打开并读取号码number文件
+f.close()
+data = data.split('\n') #将多行str分割并转换为list
+A = set(data) #去重
+for x in A :
+    print (x)
+print (len(data))
+print (len(A))
 ```
 
