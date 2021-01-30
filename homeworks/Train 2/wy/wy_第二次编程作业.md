@@ -27,10 +27,10 @@ rob_red_pocket (people,money)
 ```python
 import re
 File = open("data.txt","r",encoding='utf-8')
-s = a.read()
+s = File.read()
 File.close()
-p = re.compile(r"(.*)\[([^\[\]]*)\](.*)")
-p.findall(string)
+p = re.compile(r"[\d]")
+p.findall(s)
 ```
 
 
