@@ -56,8 +56,9 @@ while (sum(game[0]) != 0 and sum(game[0]) != 6
 # 打印棋盘
     for i in game :
         print(i)
-
-# 用坐标表示下棋的位置
+        
+	print ("请用两位数坐标表示下棋的位置(如22，33，13)")
+    
 # Player1下棋
     Position1 = int(input("Player1下哪个位置？"))
     game[Position1//10 -1][Position1%10 -1] = 0
@@ -125,7 +126,8 @@ while (sum(game[0]) != 0 and sum(game[0]) != 6
     for i in game :
         print(i)
 
-# 用坐标表示下棋的位置
+	print ("请用两位数坐标表示下棋的位置(如22，33，13)")
+    
 # Player1下棋
     Position1 = int(input("Player1下哪个位置？"))
     game[Position1//10 -1][Position1%10 -1] = 0
