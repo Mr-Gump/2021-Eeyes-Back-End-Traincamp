@@ -34,6 +34,8 @@ game = [
 [1,1,1],
 [1,1,1]]
 
+# 模型初始化 Model Init
+
 n = 0
 # player1下0，computer下2。当直线的和等于0/6时，游戏结束
 while (sum(game[0]) != 0 and sum(game[0]) != 6 
@@ -105,8 +107,8 @@ game = [
 
 n = 0
 # player1下0，playe2下2。当直线的和等于0/6时，游戏结束
-while (sum(game[0]) != 0 and sum(game[0]) != 6 
-    and sum(game[1]) != 0 and sum(game[1]) != 6 
+while (sum(game[0]) != 0 and sum(game[0]) != 6 \
+    \and sum(game[1]) != 0 and sum(game[1]) != 6 
     and sum(game[2]) != 0 and sum(game[2]) != 6 
 
     and game[0][0]+game[1][1]+game[2][2] != 0

@@ -8,7 +8,7 @@ from random import *
 
 people=int(input('the number of people'))
 money 1=int(input('the number of money'))
-    money = money 1* 100
+    money = money * 100
     result = []
     rest = money
 #随机取数
@@ -25,7 +25,7 @@ print(result)
 
 
 #File "C:/Users/田野/PycharmProjects/pythonProject/try one.py", line 4
-    money 1=int(input('the number of money'))
+    money1=int(input('the number of money'))
           ^
 SyntaxError: invalid syntax
     
