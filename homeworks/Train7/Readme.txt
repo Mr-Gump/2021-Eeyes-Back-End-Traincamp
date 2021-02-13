@@ -4,7 +4,7 @@
 用户名:eeyes
 密码:Gan000803@
 数据库名:homework
-一、SQL基本练习(先复习SQL语法,自学连接查询,再仔细观察SQL表)
+一、SQL基本练习(先复习SQL语法,自学连接查询,再仔细观察SQL表字段)
 1. 选择姓名中有字母 a 和 e 的员工姓名
 
 2. 显示出表 employees 表中 first_name 以 'e'结尾的员工信息
