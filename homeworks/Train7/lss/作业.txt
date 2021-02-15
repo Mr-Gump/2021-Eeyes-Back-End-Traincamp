@@ -1,0 +1,152 @@
+注意:题目一数据库为
+主机地址:rm-bp1qre470ifl7u97e2o.mysql.rds.aliyuncs.com
+端口:3306
+用户名:eeyes
+密码:Gan000803@
+数据库名:myemployees
+一、SQL基本练习(先复习SQL语法,自学连接查询,再仔细观察SQL表字段)
+1. 选择姓名中有字母 a 和 e 的员工姓名
+
+SELECT CONCAT(last_name,first_name) 
+FROM  employees
+WHERE CONCAT(first_name,last_name) LIKE '%a%' OR '%e%' ;
+
+2. 显示出表 employees 表中 first_name 以 'e'结尾的员工信息
+
+SELECT *
+FROM  employees
+WHERE first_name LIKE '%e';
+
+3. 显示出表 employees 的 manager_id 是 100,101,110 的员工姓名、职位
+
+SELECT job_id, CONCAT(last_name,first_name) 
+FROM  employees
+WHERE manager_id = 100 or 101 or 110
+
+4. 查询员工的姓名和部门号和年薪，按年薪降序 按姓名升序
+
+#年薪降序
+SELECT CONCAT(last_name,first_name) ,department_id,salary
+FROM  employees
+ORDER BY salary DESC
+
+#姓名升序
+SELECT CONCAT(last_name,first_name) ,department_id,salary
+FROM  employees
+ORDER BY 'ASC'
+
+5. 选择工资不在 8000 到 17000 的员工的姓名和工资，按工资降序
+
+SELECT CONCAT(last_name,first_name),salary
+FROM  employees
+WHERE salary<8000 OR salary>17000
+ORDER BY salary DESC
+
+6. 查询邮箱中包含 e 的员工信息，并先按邮箱的字节数降序，再按部门号升序
+
+#邮箱的字节数降序
+SELECT *
+FROM  employees
+WHERE email LIKE '%e%'
+ORDER BY LENGTH(email)  DESC
+
+#部门号升序
+SELECT *
+FROM  employees
+WHERE email LIKE '%e%'
+ORDER BY department_id  ASC
+
+7. 显示系统时间(注：日期+时间)
+
+SELECT NOW()
+
+8. 查询员工号，姓名，工资，以及工资提高百分之 20%后的结果（new salary）
+
+SELECT
+	employee_id,
+	CONCAT( last_name, f ),
+	salary,
+	salary * 1.2 "new salary" 
+FROM
+	employees;
+
+9. 将员工的姓名按首字母排序，并写出姓名的长度（length）
+
+SELECT
+	last_name,length( last_name ) 
+FROM
+	employees 
+ORDER BY
+	last_name
+
+10.查询员工最高工资和最低工资的差距（DIFFERENCE）
+
+SELECT(MAX( salary )- MIN( salary )) AS chaju 
+FROM employees;
+
+11. 查询各个管理者手下员工的最低工资，其中最低工资不能低于 6000， 没有管理者的员工不计算在内
+
+SELECT
+	manager_id,
+	MIN( salary ) AS smallist 
+FROM
+	employees 
+WHERE manager_id #不加会导致出现无管理者的员工
+GROUP BY manager_id 
+HAVING
+	smallist  >= 6000;
+
+12. 查询所有部门的编号，员工数量和工资平均值,并按平均工资降序
+
+SELECT department_id,COUNT(*),AVG( salary ) AS avarage 
+FROM employees 
+GROUP BY department_id 
+ORDER BY avarage  DESC;
+
+13. 查询公司员工工资的最大值，最小值，平均值，总和
+
+SELECT
+	MAX( salary ),
+	MIN( salary ),
+	AVG( salary ),
+	SUM( salary ) 
+FROM
+	employees ;
+
+14. 查询员工表中的最大入职时间和最小入职时间的相差天数 （DIFFRENCE）
+
+SELECT DATEDIFF(MAX(hiredate),MIN( hiredate )) AS DIFFERENCE 
+FROM employees;
+
+15. 查询部门编号为 90 的员工个数
+
+SELECT
+	count(*) 个数 
+FROM
+	employees 
+WHERE
+	department_id = 90;
+
+16. 查询哪个城市没有部门
+
+SELECT
+	city,
+	department_name 
+FROM
+	locations l
+	LEFT JOIN departments d ON l.location_id = d.location_id 
+WHERE
+	department_name IS NULL;
+
+17. 查询部门名为 SAL 或 IT 的员工信息
+
+SELECT
+	*,
+	department_name 
+FROM
+	employees
+	LEFT JOIN departments d ON employees.department_id = d.department_id 
+WHERE
+	department_name IN ( 'SAL', 'IT' );
+
+二、使用pymysql讲三个txt(2017_storage.txt,2018_storage.txt,2019_storage.txt)文件存入本地数据库(localhost)
